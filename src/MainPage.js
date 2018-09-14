@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 import Book from './Book'
 
+//to display books inside a shelf we are filtering the books
+//we fetched and then we are putting the books that are on wantToRead shelf 
+//in a list using a .map method
+
 class MainPage extends Component {
     render() {
         return (
@@ -20,13 +24,20 @@ class MainPage extends Component {
                     </ol>
                   </div>
                 </div>
+                
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Want to Read</h2>
-                  <div className="bookshelf-books">
+                  <div className="bookshelf-books">                        
                     <ol className="books-grid">
-                        <li>
-                            <Book/>
-                        </li>
+                        {
+                        this.props.books
+                            .filter(book => book.shelf === 'wantToRead')
+                            .map(book =>
+                            <li key = {book.id}>
+                                <Book/>
+                            </li>
+                            )
+                    }                      
                     </ol>
                   </div>
                 </div>
