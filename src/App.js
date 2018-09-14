@@ -10,7 +10,7 @@ class BooksApp extends React.Component {
   state = {
     books: []
   }
-
+  //fetching the books
   componentDidMount(){
     BooksAPI.getAll().then((books) => {
       this.setState({books})
@@ -25,10 +25,12 @@ class BooksApp extends React.Component {
      */
    
   render() {
-   console.log(this.state.books);
-    return (
+      return (
       <div className="app">
-      <MainPage/>
+        <MainPage
+        //defining props so MainPage will have access to state 
+        books = {this.state.books}
+        />
       </div>
     )
   }
