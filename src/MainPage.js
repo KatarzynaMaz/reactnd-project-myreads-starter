@@ -2,8 +2,9 @@ import React, {Component} from 'react'
 import Book from './Book'
 
 //to display books inside a shelf we are filtering the books
-//we fetched and then we are putting the books that are on wantToRead shelf 
+//we fetched and then we are putting the books that are on approppiate shelves 
 //in a list using a .map method
+
 
 class MainPage extends Component {
     render() {
@@ -18,9 +19,15 @@ class MainPage extends Component {
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                      <li>
-                          <Book/>
-                      </li>
+                    {
+                        this.props.books
+                            .filter(book => book.shelf === 'currentlyReading')
+                            .map(book =>
+                            <li key = {book.id}>
+                                <Book/>
+                            </li>
+                            )
+                    }
                     </ol>
                   </div>
                 </div>
@@ -45,6 +52,15 @@ class MainPage extends Component {
                   <h2 className="bookshelf-title">Read</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
+                    {
+                        this.props.books
+                            .filter(book => book.shelf === 'read')
+                            .map(book =>
+                            <li key = {book.id}>
+                                <Book/>
+                            </li>
+                            )
+                    }
                         <li>
                             <Book/>
                         </li>
