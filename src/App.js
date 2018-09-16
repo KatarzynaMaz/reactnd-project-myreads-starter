@@ -39,11 +39,12 @@ class BooksApp extends React.Component {
     console.log(this.state.books);
       return (
       <div className="app">
-        <MainPage
+        {/*<MainPage
         //defining props so MainPage will have access to state 
         books = {this.state.books}
         updateShelf = {this.updateShelf}
-        />
+        />*/}
+        <SearchPage/>
       </div>
     )
   }
