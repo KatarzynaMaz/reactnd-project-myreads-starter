@@ -16,7 +16,18 @@ class BooksApp extends React.Component {
       this.setState({books})
     })
   }
- 
+  
+  // In order to update shelf with a new book, we need to have an update method
+  //it requires book and shelf
+  updateShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf);
+
+    BooksAPI.getAll().then((books) => {
+      this.setState({books})
+    })
+  }
+
+  
     /**
      * TODO: Instead of using this state variable to keep track of which page
      * we're on, use the URL in the browser's address bar. This will ensure that
@@ -25,11 +36,13 @@ class BooksApp extends React.Component {
      */
    
   render() {
+    console.log(this.state.books);
       return (
       <div className="app">
         <MainPage
         //defining props so MainPage will have access to state 
         books = {this.state.books}
+        updateShelf = {this.updateShelf}
         />
       </div>
     )
