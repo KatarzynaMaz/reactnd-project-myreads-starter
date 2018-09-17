@@ -18,9 +18,13 @@ class BooksApp extends React.Component {
   }
   
   // In order to update shelf with a new book, we need to have an update method
-  //it requires book and shelf
+  //of the books' API. It requires book and shelf, we need to put it in the App.js because that's 
+  //where our state lives
+
   updateShelf = (book, shelf) => {
     BooksAPI.update(book, shelf);
+
+  //to update the UI after updating the shelf we need to call again getAll()
 
     BooksAPI.getAll().then((books) => {
       this.setState({books})
@@ -39,12 +43,12 @@ class BooksApp extends React.Component {
     console.log(this.state.books);
       return (
       <div className="app">
-        {/*<MainPage
-        //defining props so MainPage will have access to state 
+      
+       {/*} <MainPage
         books = {this.state.books}
         updateShelf = {this.updateShelf}
-        />*/}
-        <SearchPage/>
+      />*/}
+       <SearchPage/>
       </div>
     )
   }
