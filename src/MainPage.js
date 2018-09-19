@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Book from './Book'
+import {Link} from 'react-router-dom'
 
 //to display books inside a shelf we are filtering the books
 //we fetched and then we are putting the books that are on approppiate shelves 
@@ -79,7 +80,9 @@ class MainPage extends Component {
               </div>
             </div>
             <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+              <Link
+                to = '/search'>Add a book
+             ></Link> 
             </div>
           </div> 
         );
