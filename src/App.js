@@ -44,13 +44,14 @@ class BooksApp extends React.Component {
       return (
       <div className="app">
       
-       {/*} <MainPage
+   <MainPage
         books = {this.state.books}
         updateShelf = {this.updateShelf}
-      />*/}
-       <SearchPage
+   />
+   {/*}  <SearchPage
+       books = {this.state.books}
        updateShelf={this.updateShelf}
-       />
+    />*/}
       </div>
     )
   }
