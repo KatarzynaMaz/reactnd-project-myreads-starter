@@ -20,7 +20,7 @@ class MainPage extends Component {
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                    {
+                      {
                         this.props.books
                             .filter(book => book.shelf === 'currentlyReading')
                             .map(book =>
@@ -32,7 +32,7 @@ class MainPage extends Component {
                                 />
                             </li>
                             )
-                    }
+                      }
                     </ol>
                   </div>
                 </div>
@@ -42,18 +42,18 @@ class MainPage extends Component {
                   <div className="bookshelf-books">                        
                     <ol className="books-grid">
                         {
-                        this.props.books
+                          this.props.books
                             .filter(book => book.shelf === 'wantToRead')
                             .map(book =>
-                            <li key = {book.id}>
+                              <li key = {book.id}>
                                 <Book
                                 book = {book}
                                 updateShelf = {this.props.updateShelf}
                                 currentShelf ="wantToRead"
                                 />
-                            </li>
+                              </li>
                             )
-                    }                      
+                        }                      
                     </ol>
                   </div>
                 </div>
@@ -62,7 +62,7 @@ class MainPage extends Component {
                   <div className="bookshelf-books">
                     <ol className="books-grid">
                         {
-                        this.props.books
+                          this.props.books
                             .filter(book => book.shelf === 'read')
                             .map(book =>
                             <li key = {book.id}>
@@ -82,7 +82,7 @@ class MainPage extends Component {
             <div className="open-search">
               <Link
                 to = '/search'>Add a book
-             ></Link> 
+              ></Link> 
             </div>
           </div> 
         );
