@@ -62,7 +62,7 @@ class SearchPage extends Component{
            
             <div className="search-books-results">
               <ol className="books-grid">
-              {
+                {
                   this.state.searchedBooks.map(searchedBook => {
                     let shelf = 'none'
                     this.props.books.map(book => (
@@ -82,16 +82,6 @@ class SearchPage extends Component{
                     />
                      </li>
                   )
-                    
-                    {/* this.state.searchedBooks.map(searchedBook => (
-                    <li key={searchedBook.id}>
-                   <Book
-                   book = {searchedBook}
-                   updateShelf = {this.props.updateShelf}
-                    />
-                    </li>
-                  
-                    ))*/}
                   })
                 }
               </ol>
