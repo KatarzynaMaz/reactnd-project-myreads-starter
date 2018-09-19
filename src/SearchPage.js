@@ -39,7 +39,7 @@ class SearchPage extends Component{
               <Link 
                    to = '/'
                        className="close-search" 
-                > Close </Link>
+              > Close </Link>
 
               <div className="search-books-input-wrapper">
                 {/*
@@ -61,18 +61,40 @@ class SearchPage extends Component{
             </div>
            
             <div className="search-books-results">
-              <ol className="books-grid"></ol>
+              <ol className="books-grid">
               {
-                this.state.searchedBooks.map(searchedBook => (
-                  <li key={searchedBook.id}>
-                  <Book
+                  this.state.searchedBooks.map(searchedBook => {
+                    let shelf = 'none'
+                    this.props.books.map(book => (
+                    book.id===searchedBook.id ?
+                    shelf = book.shelf:''
+                    )
+                    )
+                     
+              
+                  return (
+
+                    <li key={searchedBook.id}>
+                    <Book
+                     book = {searchedBook}
+                     updateShelf = {this.props.updateShelf}
+                     currentShelf = {shelf}
+                    />
+                     </li>
+                  )
+                    
+                    {/* this.state.searchedBooks.map(searchedBook => (
+                    <li key={searchedBook.id}>
+                   <Book
                    book = {searchedBook}
                    updateShelf = {this.props.updateShelf}
-                  />
-                   </li>
+                    />
+                    </li>
                   
-                ))
-              }
+                    ))*/}
+                  })
+                }
+              </ol>
             </div>
 
           </div>
