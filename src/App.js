@@ -11,7 +11,8 @@ class BooksApp extends React.Component {
   state = {
     books: []
   }
-  //fetching the books
+  
+  
   componentDidMount(){
     BooksAPI.getAll().then((books) => {
       this.setState({books})
@@ -19,8 +20,7 @@ class BooksApp extends React.Component {
   }
   
   // In order to update shelf with a new book, we need to have an update method
-  //of the books' API. It requires book and shelf, we need to put it in the App.js because that's 
-  //where our state lives
+  //of the books' API.
 
   updateShelf = (book, shelf) => {
     BooksAPI.update(book, shelf);
@@ -31,15 +31,7 @@ class BooksApp extends React.Component {
       this.setState({books})
     })
   }
-
-  
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
-   
+          
   render() {
     console.log(this.state.books);
       return (
